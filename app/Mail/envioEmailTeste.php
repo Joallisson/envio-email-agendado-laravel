@@ -31,10 +31,10 @@ class envioEmailTeste extends Mailable
      *
      * @return $this
      */
-    public function build(Request $request)
+    public function build()
     {
         $this->subject('Envio de teste');
         $this->to($this->user->email, $this->user->name);
-        return $this->view('testeEmail');
+        return $this->view('welcome');
     }
 }

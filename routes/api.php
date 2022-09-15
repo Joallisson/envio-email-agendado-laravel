@@ -1,6 +1,6 @@
 <?php
 
-use App\Mail\envioEmailTeste;
+use App\Jobs\envioEmailTeste;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
@@ -27,5 +27,5 @@ Route::get('envio_email', function(){
     $user->name = 'Joallisson';
     $user->email = 'joallisson.ti@gmail.com';
 
-    Mail::send(new envioEmailTeste($user));
+    envioEmailTeste::dispatch($user)->delay(now()->addSeconds('3'));
 });
